@@ -89,22 +89,19 @@ export default function Login({}: Props) {
   // };
 
   return (
-    <>
+    <div className="login-bg">
       <div className="container mx-auto">
         <div className="w-full flex flex-wrap h-screen">
-          <div className="w-1/2 hidden md:flex h-screen justify-center items-center">
-            <img className="w-full hidden md:block" src="/login-bg.png" />
-          </div>
-          <div className="w-full md:w-1/2 flex flex-col justify-center items-center login-form">
-            <div className="w-full flex flex-col justify-center md:justify-start my-auto px-8">
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-center mx-auto login-form">
+            <div className="w-full flex flex-col justify-center md:justify-start mx-auto my-auto px-14 bg-white rounded-xl py-16 md:max-w-[448px]">
               <img
                 src="/logo.png"
-                className="mx-auto w-[11rem] md:w-[22rem] "
+                className="w-[11rem] md:w-[182px] "
               />
-              <p className="text-center text-xl lg:text-5xl text-gray font-light mt-10">
-                Welcome to Accounting
+              <p className="text-xl lg:text-[27px] text-gray font-bold mt-10">
+                Sign in to Multichain
               </p>
-              <div className="w-full max-w-[23rem] mx-auto">
+              <div className="w-full">
                 <Form
                   className="flex flex-col pt-3 md:pt-8"
                   initialValues={{ remember: false }}
@@ -114,7 +111,7 @@ export default function Login({}: Props) {
                   <span className="text-danger">{errorSms}</span>
 
                   <div className="flex flex-col pt-4">
-                    <label className="text-xs md:text-base">Username</label>
+                    <label className="text-xs md:text-base text-grey">Username</label>
                     <Form.Item
                       name="username"
                       rules={[
@@ -125,16 +122,17 @@ export default function Login({}: Props) {
                       ]}
                     >
                       <Input
-                        className="appearance-none border-none bg-secondary rounded-lg h-14 w-full mb-0 px-3 text-gray-300 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+                        className="appearance-none bg-white rounded-lg h-14 w-full mb-0 px-3 text-gray-300 mt-1 leading-tight focus:outline-none focus:shadow-outline border-lightGrey"
                         onChange={(e) => setEmail(e.target.value)}
                         id="email"
                         value={email}
+                        placeholder="Your email address"
                       />
                     </Form.Item>
                   </div>
 
-                  <div className="flex flex-col pt-4">
-                    <label className="text-xs md:text-base">Password</label>
+                  <div className="flex flex-col">
+                    <label className="text-xs md:text-base text-grey">Password</label>
                     <Form.Item
                       name="password"
                       rules={[
@@ -143,33 +141,24 @@ export default function Login({}: Props) {
                           message: "Please input your password!",
                         },
                       ]}
+                      className="my-0 text-grey"
                     >
                       <Input.Password
-                        className="appearance-none border-none bg-secondary rounded h-14 w-full mb-0 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+                        className="appearance-none bg-white rounded-lg h-14 w-full mb-0 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline py-0 border-lightGrey"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
+                        placeholder="Your password"
                       />
                     </Form.Item>
                   </div>
 
-                  <div className="flex flex-wrap pt-4">
+                  <div className="flex flex-wrap">
                     <div className="w-1/2">
-                      <Form.Item
-                        name="remember"
-                        valuePropName="checked"
-                        className="mb-0"
-                      >
-                        <Checkbox
-                          className="text-[12px] md:text-xs md:text-base"
-                          onChange={() => setRemember(!remember)}
-                        >
-                          Remember me
-                        </Checkbox>
-                      </Form.Item>
+
                     </div>
-                    <div className="w-1/2 text-right pt-1">
+                    <div className="w-1/2 text-right">
                       <Link href="/forgot-password">
-                        <a className="text-[12px] md:text-xs text-primary md:text-base">
+                        <a className="text-[12px] md:text-xs md:text-base text-grey">
                           Forgot your password?
                         </a>
                       </Link>
@@ -180,18 +169,24 @@ export default function Login({}: Props) {
                       <Button
                         type="primary"
                         htmlType="submit"
-                        className="w-full bg-primary rounded-lg h-14"
+                        className="w-full rounded-full h-14 bg-gradient-to-r from-bgradian1 to-bgradian2 text-[16px]"
                       >
                         Login
                       </Button>
                     </Form.Item>
                   </div>
+                  <div className="flex flex-col pt-4 text-center text-primary">
+                  <p>Sign up to mutichain account</p>
+                  <p className="mt-1">Terms | Policy</p>
+                  </div>
+
+                  
                 </Form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
