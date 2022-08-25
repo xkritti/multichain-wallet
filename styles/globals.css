@@ -8,11 +8,29 @@ div p {
 .login-bg{
     background-image: url("/bg-login.jpg");
     background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .ant-form .ant-input, .ant-form .ant-select{
     border: 1px solid #CEE2FA;
     border-radius: 5px;
-  }
+}
+
+.nav-shadov{
+    box-shadow: 0px 8px 17px rgba(117, 117, 117, 0.07);
+}
+
+.nav-shadow a{
+    color: #1E2329;
+}
+
+
+@media only screen and (max-width: 991px) {
+    .block-nav{
+        display: inline;
+    }
+    .hidden-nav{
+        display: none;
+    }
+}
