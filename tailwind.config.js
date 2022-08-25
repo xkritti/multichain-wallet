@@ -21,11 +21,13 @@ module.exports = {
       dark: '#2E3A44',
       info: '#1CA7EC',
       black: '#2E3A44',
-      grey: '#858993',
-      lightGrey: '#EDEDED',
+      gray: '#858993',
+      lightGray: '#EDEDED',
       white: '#FFF',
       bgradian1: "#0142C8",
       bgradian2: "#076EF3",
+      bgray: "#EEF0F3",
+      borderGray: "#DEDFE2"
     }
   },
   plugins: []
