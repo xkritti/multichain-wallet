@@ -111,7 +111,7 @@ export default function Login({}: Props) {
                   <span className="text-danger">{errorSms}</span>
 
                   <div className="flex flex-col pt-4">
-                    <label className="text-xs md:text-base text-grey">Username</label>
+                    <label className="text-xs md:text-base text-gray">Username</label>
                     <Form.Item
                       name="username"
                       rules={[
@@ -122,7 +122,7 @@ export default function Login({}: Props) {
                       ]}
                     >
                       <Input
-                        className="appearance-none bg-white rounded-lg h-14 w-full mb-0 px-3 text-gray-300 mt-1 leading-tight focus:outline-none focus:shadow-outline border-lightGrey"
+                        className="appearance-none bg-white rounded-lg h-14 w-full mb-0 px-3 text-gray-300 mt-1 leading-tight focus:outline-none focus:shadow-outline border-lightGray"
                         onChange={(e) => setEmail(e.target.value)}
                         id="email"
                         value={email}
@@ -132,7 +132,7 @@ export default function Login({}: Props) {
                   </div>
 
                   <div className="flex flex-col">
-                    <label className="text-xs md:text-base text-grey">Password</label>
+                    <label className="text-xs md:text-base text-gray">Password</label>
                     <Form.Item
                       name="password"
                       rules={[
@@ -141,10 +141,10 @@ export default function Login({}: Props) {
                           message: "Please input your password!",
                         },
                       ]}
-                      className="my-0 text-grey"
+                      className="my-0 text-gray"
                     >
                       <Input.Password
-                        className="appearance-none bg-white rounded-lg h-14 w-full mb-0 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline py-0 border-lightGrey"
+                        className="appearance-none bg-white rounded-lg h-14 w-full mb-0 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline py-0 border-lightGray"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
                         placeholder="Your password"
@@ -158,7 +158,7 @@ export default function Login({}: Props) {
                     </div>
                     <div className="w-1/2 text-right">
                       <Link href="/forgot-password">
-                        <a className="text-[12px] md:text-xs md:text-base text-grey">
+                        <a className="text-[12px] md:text-xs md:text-base text-gray">
                           Forgot your password?
                         </a>
                       </Link>
