@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+div p {
+    font-family: "Helvetica Neue";
+}
+.login-bg{
+    background-image: url("/bg-login.jpg");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ant-form .ant-input, .ant-form .ant-select{
+    border: 1px solid #CEE2FA;
+    border-radius: 5px;
+  }
