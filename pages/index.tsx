@@ -98,7 +98,7 @@ export default function Login({}: Props) {
                 src="/logo.png"
                 className="w-[11rem] md:w-[182px] "
               />
-              <p className="text-xl lg:text-[27px] text-gray font-bold mt-10">
+              <p className="text-xl lg:text-[27px] text-gray font-bold mt-10 text-black">
                 Sign in to Multichain
               </p>
               <div className="w-full">
