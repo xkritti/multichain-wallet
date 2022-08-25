@@ -1,89 +1,74 @@
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu } from "antd";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
+import { MenuOutlined, CloseOutlined, MailOutlined } from "@ant-design/icons";
+import { Layout, Menu } from "antd";
+import { Toaster } from "react-hot-toast";
 
-const { Header, Content, Footer, Sider } = Layout;
+import HeaderTemplate from "../../components/ui/header";
+import MenuTemplate from "../../components/ui/menu";
+//import getWindowWidth from "../../helpers/window";
 
-type MenuItem = Required<MenuProps>["items"][number];
+const { Header, Sider, Content, Footer } = Layout;
 
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
+type Props = {
+  children: ReactNode;
+};
 
-const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
-];
-
-type Props = {};
-
-export default function dashboard({}: Props) {
+export default function MainLayout({ children }: Props) {
   const [collapsed, setCollapsed] = useState(false);
 
+  const [collapsed1, setCollapsed1] = useState(true);
+
+  const CustomTrigger = () => {
+    return collapsed ? <CloseOutlined /> : <MenuOutlined />;
+    
+  };
+  const collapsedHandler = () => {
+    // if(getWindowWidth() < 1100) {
+    //   setCollapsed(!collapsed)
+    // }
+  }
+
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Sider
-        className="bg-white"
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-      >
-        <div className="logo" />
-        <Menu
-          theme="light"
-          defaultSelectedKeys={["1"]}
-          mode="inline"
-          items={items}
-        />
-      </Sider>
-      <Layout className="site-layout">
-        <Header
-          className="site-layout-background bg-white"
-          style={{ padding: 0 }}
-        />
-        <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            className="site-layout-background"
-            style={{ padding: 24, minHeight: 360 }}
-          >
-            Bill is a cat.
-          </div>
-        </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer>
-      </Layout>
-    </Layout>
+    <div className="bg-gray1">
+      <Toaster position="top-center" reverseOrder={false} />
+      <div className="w-full lg:px-[75px] mx-auto">
+        <div className="w-full flex flex-wrap h-screen">
+          <Layout>
+            <Sider
+              breakpoint="lg"
+              collapsedWidth="0"
+              onBreakpoint={(broken) => {
+                //console.log("broken", broken);
+              }}
+              // onCollapse={(collapsed, type) => {
+              //   setCollapsed(!collapsed);
+              //   console.log("collapsed", collapsed, type);
+              // }}
+              className="side-menu bg-white w-[272px] border-r-2 border-[#F5F5F5]"
+              width="272"
+              trigger={<CustomTrigger />}
+              // collapsible
+              // collapsed={!collapsed}
+            >
+              <div className="flex flex-wrap content-center logo my-3 h-9 my-5 md:my-6 md:h-12 bg-gray1">
+                <img src="/logo.png" className="ml-5 md:mx-auto lg:ml-0 h-9" />
+              </div>
+
+              <MenuTemplate collapsedHandlerProp={collapsedHandler} />
+
+            </Sider>
+            <Layout className="bg-white">
+              <HeaderTemplate />
+
+              <Content className="bg-gray1 md:pl-4 pt-5 px-2 lg:pt-0 text-xs md:text-sm bg-[#F5F5F5]">
+                <div className="w-full rounded-2xl bg-white h-full mt-3">
+                  <img src="/dashboard-main.jpg" className="w-full" />
+                </div>
+              </Content>
+            </Layout>
+          </Layout>
+        </div>
+      </div>
+    </div>
   );
 }
