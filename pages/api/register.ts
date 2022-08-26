@@ -1,4 +1,4 @@
-const WEB_BACKEND = "http://localhost:4000";
+const WEB_BACKEND = "https://multichain-backend.herokuapp.com/" || "http://localhost:4000";
 
 export const signup = async (data: { email: string; password: string }) => {
   const bodyData = {
