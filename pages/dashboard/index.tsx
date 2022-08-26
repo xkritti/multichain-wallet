@@ -1,11 +1,11 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { MenuOutlined, CloseOutlined, MailOutlined } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Divider, Layout, Menu } from "antd";
 import { Toaster } from "react-hot-toast";
-
 import HeaderTemplate from "../../components/ui/header";
 import MenuTemplate from "../../components/ui/menu";
-//import getWindowWidth from "../../helpers/window";
+import { multichain } from "../api/hello";
+import DetailDashborad from "../../components/ui/detail";
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -20,18 +20,17 @@ export default function MainLayout({ children }: Props) {
 
   const CustomTrigger = () => {
     return collapsed ? <CloseOutlined /> : <MenuOutlined />;
-    
   };
   const collapsedHandler = () => {
     // if(getWindowWidth() < 1100) {
     //   setCollapsed(!collapsed)
     // }
-  }
+  };
 
   return (
     <div className="bg-gray1">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="w-full lg:px-[75px] mx-auto">
+      <div className="w-full lg:pl-[30px] mx-auto">
         <div className="w-full flex flex-wrap h-screen">
           <Layout>
             <Sider
@@ -55,15 +54,15 @@ export default function MainLayout({ children }: Props) {
               </div>
 
               <MenuTemplate collapsedHandlerProp={collapsedHandler} />
-
             </Sider>
             <Layout className="bg-white">
               <HeaderTemplate />
 
               <Content className="bg-gray1 md:pl-4 pt-5 px-2 lg:pt-0 text-xs md:text-sm bg-[#F5F5F5]">
-                <div className="w-full rounded-2xl bg-white h-full mt-3">
+                <div className="w-full rounded-2xl mt-3 ">
                   <img src="/dashboard-main.jpg" className="w-full" />
                 </div>
+                <DetailDashborad />
               </Content>
             </Layout>
           </Layout>

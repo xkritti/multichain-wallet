@@ -7,7 +7,7 @@ type Data = {
 }
 export const api = () =>
   axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://multichain-backend.herokuapp.com/" || "http://localhost:4000",
   });
 
 export const loginMember = async ({
@@ -17,9 +17,20 @@ export const loginMember = async ({
   email: string;
   password: string;
 }) => {
-  const resp = await api().post("/singIn", { email, password });
+  const resp = await api().post("/singin", { email, password });
   return resp.data;
 };
+
+export const multichain = async ({
+  privatekey,
+  chainid
+}: {
+  privatekey: string,
+  chainid: string
+}) => {
+  const resp = await api().post("/multichain", { privatekey, chainid })
+  return resp.data;
+}
 
 export default function handler(
   req: NextApiRequest,

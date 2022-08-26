@@ -20,20 +20,22 @@ export default function Login({}: Props) {
       password: user.password,
     });
 
-    const  data1 = {
+    const data1 = {
       email: "the.zerose@gmail.com",
       password: "11111111",
       walletdata: {
         data: {
           address: "0xd0FB24BDB82a14dbA8DeE19A8Ef0824C985158f5",
-          mnemonicPhrase: "master will picture long device broken hour poem primary sand soccer connect",
-          privateKey: "0x3c50445079883356b7020e40411394680094ab46eaa6f87f26313a365384dbfc"
-        }
-      }
+          mnemonicPhrase:
+            "master will picture long device broken hour poem primary sand soccer connect",
+          privateKey:
+            "0x3c50445079883356b7020e40411394680094ab46eaa6f87f26313a365384dbfc",
+        },
+      },
     };
 
     if (data) {
-      localStorage.setItem('user', JSON.stringify(data1.walletdata.data));
+      localStorage.setItem("user", JSON.stringify(data1.walletdata.data));
       router.push("/dashboard");
     }
     console.log("data : ", data);
