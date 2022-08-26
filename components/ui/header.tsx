@@ -40,6 +40,7 @@ export default function HeaderTemplate({}: Props) {
         >
           <div className="flex flex-wrap w-3/6 justify-end content-center relative ">
             <div className="flex flex-wrap ">
+
               <div className="rounded-lg  mr-2 lg:w-[142px] h-[36px] bg-[#F5F7FC]">
                 <p className="text-[14px] font-bold text-center leading-[30px]">
                   {userDisplayAddress}
