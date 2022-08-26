@@ -15,8 +15,8 @@ export default function Login({}: Props) {
   const router = useRouter();
 
   useEffect(()=>{
-    const items = JSON.parse(localStorage.getItem('user'));
-    const passlogin = JSON.parse(localStorage.getItem('userpass'));
+    const items = JSON.parse(localStorage.getItem('user')as string);
+    const passlogin = JSON.parse(localStorage.getItem('userpass')as string);
 
     if (!items) {
       setIsLogin(0)
@@ -35,10 +35,10 @@ export default function Login({}: Props) {
     console.log("pass", passlogin)
     if(passlogin){
       localStorage.setItem('userpass', JSON.stringify(1));
-      const items = JSON.parse(localStorage.getItem('user'));
+      const items = JSON.parse(localStorage.getItem('user')as string);
       setUserPrivate(items.privateKey)
     } else {
-      const items = JSON.parse(localStorage.getItem('user'));
+      const items = JSON.parse(localStorage.getItem('user')as string);
       setUserPrivate(items.privateKey)
     }
     
