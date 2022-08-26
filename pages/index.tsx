@@ -35,10 +35,10 @@ export default function Login({}: Props) {
     };
 
     if (data) {
-      localStorage.setItem("user", JSON.stringify(data1.walletdata.data));
+      localStorage.setItem("user", JSON.stringify(data.data.walletdata.data));
       router.push("/dashboard");
     }
-    console.log("data : ", data);
+    console.log("data : ", data.data.walletdata.data);
   };
 
   return (
