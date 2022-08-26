@@ -24,15 +24,14 @@ export default function HeaderTemplate({}: Props) {
   const router = useRouter();
   // const setLogoutData = useUserStore((state) => state.setDefaultData);
 
-  useEffect(()=>{
-    const items = JSON.parse(localStorage.getItem('user'));
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("user") as string);
     if (items) {
       const text1 = items.address.substring(0, 6);
       const text2 = items.address.slice(-4);
       setUserDisplayAddress(text1 + "..." + text2);
-     }
-  },[])
-  
+    }
+  }, []);
 
   // const userLogout = () => {
   //   setLogoutData();
@@ -40,8 +39,6 @@ export default function HeaderTemplate({}: Props) {
   //     router.push("/login");
   //   }, 1000);
   // };
-
-  
 
   return (
     <>
@@ -52,7 +49,7 @@ export default function HeaderTemplate({}: Props) {
         <div className="flex flex-wrap w-3/6 content-center bg-white pl-10">
           <img src="/logo.png" className="h-9 lg:hidden" />
         </div>
-        <Popover  trigger="hover" placement="bottomRight">
+        <Popover trigger="hover" placement="bottomRight">
           <div className="flex flex-wrap w-3/6 justify-end content-center relative">
             <div className="flex flex-wrap">
               <div className="rounded-lg  mr-2 lg:w-[142px] h-[36px] bg-[#F5F7FC]">
